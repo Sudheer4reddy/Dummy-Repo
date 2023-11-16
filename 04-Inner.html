@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>
+    Inner Example
+  </title>
+</head>
+
+<body>
+
+  <h2>What Can JavaScript Do?</h2>
+
+  <p id="demo">JavaScript can change HTML content.
+  <h1>Galamela</h1>
+  </p>
+
+
+
+  <button type="button" onclick='ReplaceinnerHTML("demo")'>Click Me!</button>
+  <button type="button" onclick='ReplaceinnerHTML("xyz")'>Click Me!</button>
+  <script>
+
+    function ReplaceinnerHTML(IdName) {
+
+      document.getElementById(IdName).innerHTML = "Hello JavaScript!"
+
+    }
+
+  </script>
+</body>
+
+</html>
