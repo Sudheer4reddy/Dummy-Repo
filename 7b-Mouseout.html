@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>
+    Mouseout Event Example
+  </title>
+</head>
+
+<body>
+  <h2>This is Mouseout event</h2>
+  <div id="myElement" style="width: 100px; height: 100px; background-color: lightblue;"></div>
+
+  <script>
+      document.getElementById('myElement').addEventListener('mouseout', function() {
+          this.style.backgroundColor = 'lightblue';
+      });
+  </script>
+  
+
+</body>
+
+</html>
