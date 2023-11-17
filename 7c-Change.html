@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>
+    Change Event Example
+  </title>
+</head>
+
+<body>
+  <h2>This is Change event</h2>
+  <input type="text" id="myInput">
+
+<script>
+    document.getElementById('myInput').addEventListener('change', function() {
+        alert('Input value changed to: ' + this.value);
+    });
+</script>
+
+
+</body>
+
+</html>
