@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form</title>
+  <style>
+    body {
+      background-color: rgb(14, 75, 75);
+      font-family: 'Times New Roman';
+      text-align: center;
+    }
+
+    form {
+      border: 2px solid black;
+      width: 30%;
+      background-color: rgb(22, 66, 52);
+      border-radius: 5PX;
+      height: 100%;
+      padding: 2%;
+    }
+
+    label,
+    input {
+      margin: 5px;
+    }
+
+    input[type='text'],
+    input[type='email'],
+    input[type='tel'],
+    input[type='password'] {
+      width: 65%;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Sign up Details</h1>
+  <center>
+    <form method="post">
+      <table>
+        <tr>
+          <td><label>Name:</label></td>
+          <td><input required type="text" id="fname" name="fname" minlength="5"></td>
+        </tr>
+        <tr>
+          <td><label>College:</label></td>
+          <td><input readonly id="College" name="College" type="text" value="RGMCET"></td>
+        </tr>
+        <tr>
+          <td><label>Primary email:</label></td>
+          <td><input required type="email" name="email" id="mail1">
+          </td>
+        </tr>
+        <tr>
+          <td><label>Secondary email:</label></td>
+          <td><input type="email" name="email2" id="mail2"></td>
+        </tr>
+        <tr>
+          <td><label>Mobile No:</label></td>
+          <td><input required type="tel" name="mobile" id="mob" maxlength="10" minlength="10"></td>
+        </tr>
+        <tr>
+          <td><label>Password:</label></td>
+          <td><input required type="password" name="password" id="pwd"></td>
+        </tr>
+        <tr>
+          <td><label>Age:</label></td>
+          <td><input type="number" name="age" id="age" max="60" min="18"></td>
+        </tr>
+        <tr>
+          <td><label>Gender:</label></td>
+          <td><input type="radio" name="gender" value="male" checked>
+            <label>male</label>
+            <input type="radio" name="gender" value="female">
+            <label>female</label>
+            <input type="radio" name="gender" value="other">
+            <label>Other</label>
+          </td>
+        </tr>
+
+        <tr>
+          <td><button id="submit" onclick="checkup()">Submit</button></td>
+        </tr>
+      </table>
+    </form>
+  </center>
+  <script>
+    let input1 = document.getElementById('fname');
+    let mail1 = document.getElementById('mail1');
+    let mail2 = document.getElementById('mail2');
+    let mobile = document.getElementById('mob');
+    let password = document.getElementById('pwd');
+    let age = document.getElementById('age');
+
+    function checkup() {
+  if (input1.value == '' || input1.value == null) {
+    alert('please enter your name');
+  } else if (!(mail1.value.match('@' && '.com'))) {
+    alert('please enter valid mail');
+  } else if (!isValidIndianMobileNumber(mobile.value)) {
+    alert('Please enter a valid Indian mobile number');
+  } else if (!isStrongPassword(password.value)) {
+    alert('Please enter a strong password');
+  } else if (age.value == '' || age.value == null) {
+    alert('please enter your age');
+  } else if (age.value > 60 || age.value < 20) {
+    alert('you are not eligible for this');
+  } else if (mail1.value == mail2.value) {
+    alert('Please enter different email ids');
+  } else {
+    thank();
+  }
+}
+
+// Function to check if the input is a valid Indian mobile number
+function isValidIndianMobileNumber(number) {
+  const regex = /^[789]\d{9}$/;
+  return regex.test(number);
+}
+
+// Function to check if the password is strong
+function isStrongPassword(password) {
+  const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+  return regex.test(password);
+}
+    function thank() {
+      document.body.innerHTML = 'Thank You';
+      let name = input1.value.toUpperCase();
+      console.log('name:' + name);
+      console.log('Email-1:' + mail1.value);
+      console.log('Email-2:' + mail2.value);
+      console.log('Mobile No:' + mobile.value);
+      console.log('age:' + age.value);
+
+    } 
+  </script>
+</body>
+
+</html>
